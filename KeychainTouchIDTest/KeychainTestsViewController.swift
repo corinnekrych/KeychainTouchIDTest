@@ -20,12 +20,14 @@ class Test: NSObject {
 
 class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tests: [Test]?
+    var keychain: KeychainWrap?
     
     override func viewDidLoad() {
         self.tests = [Test(name: "Add item", details: "Using SecItemAdd()"),
             Test(name: "Query item", details: "Using SecItemCopyMatching()"),
             Test(name: "Update item", details: "Using SecItemUpdate()"),
-            Test(name: "Delete item", details: "Using SecItemDelete()")]
+            Test(name: "Reset all", details: "Using SecItemDelete()")]
+        self.keychain = KeychainWrap()
     }
     
     // MARK - UITableViewDataSource
@@ -58,15 +60,47 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
         let testSelected:Test? = self.testForIndexPath(indexPath)
         if let unwrappedTest = testSelected {
             if unwrappedTest.name == "Add item" {
-                UIAlertView(title: "Add item", message: "", delegate: self, cancelButtonTitle: "Cancel").show()
+                let result = keychain!.addKey("key1", value: "value1")
+                let message = keychainErrorToString(result)
+                UIAlertView(title: "Add item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
             } else if unwrappedTest.name == "Query item" {
-                UIAlertView(title: "Query item", message: "", delegate: self, cancelButtonTitle: "Cancel").show()
+                let result: String = keychain!.readKey("key1")!
+                var message = "Error reading"
+                if result == "value1" {
+                    message = "Success: \(result) found"
+                } else {
+                    message = "Error: \(result)"
+                }
+                UIAlertView(title: "Query item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
             } else if unwrappedTest.name == "Update item" {
-                UIAlertView(title: "Update item", message: "", delegate: self, cancelButtonTitle: "Cancel").show()
-            } else if unwrappedTest.name == "Add item" {
-                UIAlertView(title: "Delete item", message: "", delegate: self, cancelButtonTitle: "Cancel").show()
+                let result = keychain!.updateKey("key1", value: "value1")
+                let message = keychainErrorToString(result)
+                UIAlertView(title: "Update item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
+            } else if unwrappedTest.name == "Reset all" {
+                let result = keychain!.resetKeychain()
+                var message = ""
+                if result {
+                    message = "All keychain items deleted for this app"
+                } else {
+                    message = "Error while resetting"
+                }
+                UIAlertView(title: "Delete item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
             }
         }
     }
     
+    func keychainErrorToString(error: Int) -> String {
+        
+        var msg: String?
+        switch(error) {
+        case errSecSuccess: msg = "Success"
+        case errSecDuplicateItem: msg = "Duplicate item, please delete first"
+        case errSecItemNotFound: msg = "Item not found"
+        case -26276: msg = "Item authenticationFailed"
+        case errSecAuthFailed: msg = "Auth failed"
+        default: msg = "Error: \(error)"
+        }
+        
+        return msg!
+    }
 }

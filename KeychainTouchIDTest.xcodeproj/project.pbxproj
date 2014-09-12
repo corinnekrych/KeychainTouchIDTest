@@ -15,6 +15,7 @@
 		48CFA1CA19C2DF6A00CB109D /* KeychainTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */; };
 		48CFA1CD19C2EAF000CB109D /* auth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1CB19C2EAF000CB109D /* auth@2x.png */; };
 		48CFA1CE19C2EAF000CB109D /* keychain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1CC19C2EAF000CB109D /* keychain@2x.png */; };
+		48CFA1D019C2FF9300CB109D /* KeychainWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFA1CF19C2FF9300CB109D /* KeychainWrap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTestsViewController.swift; sourceTree = "<group>"; };
 		48CFA1CB19C2EAF000CB109D /* auth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "auth@2x.png"; path = "Resources/auth@2x.png"; sourceTree = "<group>"; };
 		48CFA1CC19C2EAF000CB109D /* keychain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keychain@2x.png"; path = "Resources/keychain@2x.png"; sourceTree = "<group>"; };
+		48CFA1CF19C2FF9300CB109D /* KeychainWrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				48CFA1A919C2D99A00CB109D /* AppDelegate.swift */,
 				48CFA1AD19C2D99A00CB109D /* Main.storyboard */,
 				48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */,
+				48CFA1CF19C2FF9300CB109D /* KeychainWrap.swift */,
 				48CFA1B019C2D99A00CB109D /* Images.xcassets */,
 				48CFA1B219C2D99A00CB109D /* LaunchScreen.xib */,
 				48CFA1A719C2D99A00CB109D /* Supporting Files */,
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48CFA1D019C2FF9300CB109D /* KeychainWrap.swift in Sources */,
 				48CFA1AA19C2D99A00CB109D /* AppDelegate.swift in Sources */,
 				48CFA1CA19C2DF6A00CB109D /* KeychainTestsViewController.swift in Sources */,
 			);
