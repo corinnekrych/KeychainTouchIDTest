@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k5h-LN-uyl">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Keychain-->
+        <scene sceneID="9va-Xa-Hrf">
+            <objects>
+                <viewController id="k5h-LN-uyl" customClass="KeychainTestsViewController" customModule="KeychainTouchIDTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tDd-Tx-bHC"/>
+                        <viewControllerLayoutGuide type="bottom" id="jZ8-Pv-pKy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yVp-lu-ChJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="TestCell" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="35" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="JET-1z-aUz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="174"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TestCell" textLabel="wfh-ks-ynb" rowHeight="35" style="IBUITableViewCellStyleDefault" id="s64-01-5hs">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s64-01-5hs" id="zhH-Qp-0Mp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wfh-ks-ynb">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="k5h-LN-uyl" id="jws-TP-ZWG"/>
+                                    <outlet property="delegate" destination="k5h-LN-uyl" id="qvF-lx-Kdx"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRZ-WN-39B">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Keychain" id="g3J-ed-UZg"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CRZ-WN-39B" secondAttribute="trailing" id="3Ub-dt-ZKg"/>
+                            <constraint firstItem="CRZ-WN-39B" firstAttribute="top" secondItem="tDd-Tx-bHC" secondAttribute="bottom" id="LGX-d4-ZeO"/>
+                            <constraint firstItem="CRZ-WN-39B" firstAttribute="leading" secondItem="yVp-lu-ChJ" secondAttribute="leading" id="ZHJ-6s-Rdq"/>
+                            <constraint firstItem="CRZ-WN-39B" firstAttribute="top" secondItem="tDd-Tx-bHC" secondAttribute="bottom" id="rMv-8i-arn"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Keychain" image="keychain.png" id="VzX-0W-yC2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B93-7R-s3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="419" y="257"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="keychain.png" width="30" height="30"/>
+    </resources>
+</document>

@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48CFA1AA19C2D99A00CB109D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFA1A919C2D99A00CB109D /* AppDelegate.swift */; };
+		48CFA1AF19C2D99A00CB109D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1AD19C2D99A00CB109D /* Main.storyboard */; };
+		48CFA1B119C2D99A00CB109D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1B019C2D99A00CB109D /* Images.xcassets */; };
+		48CFA1B419C2D99A00CB109D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1B219C2D99A00CB109D /* LaunchScreen.xib */; };
+		48CFA1C019C2D99A00CB109D /* KeychainTouchIDTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFA1BF19C2D99A00CB109D /* KeychainTouchIDTestTests.swift */; };
+		48CFA1CA19C2DF6A00CB109D /* KeychainTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */; };
+		48CFA1CD19C2EAF000CB109D /* auth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1CB19C2EAF000CB109D /* auth@2x.png */; };
+		48CFA1CE19C2EAF000CB109D /* keychain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48CFA1CC19C2EAF000CB109D /* keychain@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48CFA1BA19C2D99A00CB109D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48CFA19C19C2D99A00CB109D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48CFA1A319C2D99A00CB109D;
+			remoteInfo = KeychainTouchIDTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48CFA1A419C2D99A00CB109D /* KeychainTouchIDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainTouchIDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48CFA1A819C2D99A00CB109D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48CFA1A919C2D99A00CB109D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		48CFA1AE19C2D99A00CB109D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		48CFA1B019C2D99A00CB109D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		48CFA1B319C2D99A00CB109D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		48CFA1B919C2D99A00CB109D /* KeychainTouchIDTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainTouchIDTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48CFA1BE19C2D99A00CB109D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48CFA1BF19C2D99A00CB109D /* KeychainTouchIDTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTouchIDTestTests.swift; sourceTree = "<group>"; };
+		48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainTestsViewController.swift; sourceTree = "<group>"; };
+		48CFA1CB19C2EAF000CB109D /* auth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "auth@2x.png"; path = "Resources/auth@2x.png"; sourceTree = "<group>"; };
+		48CFA1CC19C2EAF000CB109D /* keychain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keychain@2x.png"; path = "Resources/keychain@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48CFA1A119C2D99A00CB109D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48CFA1B619C2D99A00CB109D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48CFA19B19C2D99A00CB109D = {
+			isa = PBXGroup;
+			children = (
+				48CFA1A619C2D99A00CB109D /* KeychainTouchIDTest */,
+				48CFA1BC19C2D99A00CB109D /* KeychainTouchIDTestTests */,
+				48CFA1A519C2D99A00CB109D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48CFA1A519C2D99A00CB109D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48CFA1A419C2D99A00CB109D /* KeychainTouchIDTest.app */,
+				48CFA1B919C2D99A00CB109D /* KeychainTouchIDTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48CFA1A619C2D99A00CB109D /* KeychainTouchIDTest */ = {
+			isa = PBXGroup;
+			children = (
+				48CFA1A919C2D99A00CB109D /* AppDelegate.swift */,
+				48CFA1AD19C2D99A00CB109D /* Main.storyboard */,
+				48CFA1C919C2DF6A00CB109D /* KeychainTestsViewController.swift */,
+				48CFA1B019C2D99A00CB109D /* Images.xcassets */,
+				48CFA1B219C2D99A00CB109D /* LaunchScreen.xib */,
+				48CFA1A719C2D99A00CB109D /* Supporting Files */,
+			);
+			path = KeychainTouchIDTest;
+			sourceTree = "<group>";
+		};
+		48CFA1A719C2D99A00CB109D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48CFA1CB19C2EAF000CB109D /* auth@2x.png */,
+				48CFA1CC19C2EAF000CB109D /* keychain@2x.png */,
+				48CFA1A819C2D99A00CB109D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48CFA1BC19C2D99A00CB109D /* KeychainTouchIDTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				48CFA1BF19C2D99A00CB109D /* KeychainTouchIDTestTests.swift */,
+				48CFA1BD19C2D99A00CB109D /* Supporting Files */,
+			);
+			path = KeychainTouchIDTestTests;
+			sourceTree = "<group>";
+		};
+		48CFA1BD19C2D99A00CB109D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48CFA1BE19C2D99A00CB109D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48CFA1A319C2D99A00CB109D /* KeychainTouchIDTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48CFA1C319C2D99A00CB109D /* Build configuration list for PBXNativeTarget "KeychainTouchIDTest" */;
+			buildPhases = (
+				48CFA1A019C2D99A00CB109D /* Sources */,
+				48CFA1A119C2D99A00CB109D /* Frameworks */,
+				48CFA1A219C2D99A00CB109D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainTouchIDTest;
+			productName = KeychainTouchIDTest;
+			productReference = 48CFA1A419C2D99A00CB109D /* KeychainTouchIDTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		48CFA1B819C2D99A00CB109D /* KeychainTouchIDTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48CFA1C619C2D99A00CB109D /* Build configuration list for PBXNativeTarget "KeychainTouchIDTestTests" */;
+			buildPhases = (
+				48CFA1B519C2D99A00CB109D /* Sources */,
+				48CFA1B619C2D99A00CB109D /* Frameworks */,
+				48CFA1B719C2D99A00CB109D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48CFA1BB19C2D99A00CB109D /* PBXTargetDependency */,
+			);
+			name = KeychainTouchIDTestTests;
+			productName = KeychainTouchIDTestTests;
+			productReference = 48CFA1B919C2D99A00CB109D /* KeychainTouchIDTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48CFA19C19C2D99A00CB109D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = corinnekrych;
+				TargetAttributes = {
+					48CFA1A319C2D99A00CB109D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					48CFA1B819C2D99A00CB109D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 48CFA1A319C2D99A00CB109D;
+					};
+				};
+			};
+			buildConfigurationList = 48CFA19F19C2D99A00CB109D /* Build configuration list for PBXProject "KeychainTouchIDTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48CFA19B19C2D99A00CB109D;
+			productRefGroup = 48CFA1A519C2D99A00CB109D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48CFA1A319C2D99A00CB109D /* KeychainTouchIDTest */,
+				48CFA1B819C2D99A00CB109D /* KeychainTouchIDTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48CFA1A219C2D99A00CB109D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48CFA1AF19C2D99A00CB109D /* Main.storyboard in Resources */,
+				48CFA1B419C2D99A00CB109D /* LaunchScreen.xib in Resources */,
+				48CFA1CE19C2EAF000CB109D /* keychain@2x.png in Resources */,
+				48CFA1CD19C2EAF000CB109D /* auth@2x.png in Resources */,
+				48CFA1B119C2D99A00CB109D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48CFA1B719C2D99A00CB109D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48CFA1A019C2D99A00CB109D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48CFA1AA19C2D99A00CB109D /* AppDelegate.swift in Sources */,
+				48CFA1CA19C2DF6A00CB109D /* KeychainTestsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48CFA1B519C2D99A00CB109D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48CFA1C019C2D99A00CB109D /* KeychainTouchIDTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48CFA1BB19C2D99A00CB109D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48CFA1A319C2D99A00CB109D /* KeychainTouchIDTest */;
+			targetProxy = 48CFA1BA19C2D99A00CB109D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		48CFA1AD19C2D99A00CB109D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48CFA1AE19C2D99A00CB109D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		48CFA1B219C2D99A00CB109D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48CFA1B319C2D99A00CB109D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		48CFA1C119C2D99A00CB109D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48CFA1C219C2D99A00CB109D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48CFA1C419C2D99A00CB109D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KeychainTouchIDTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		48CFA1C519C2D99A00CB109D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KeychainTouchIDTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		48CFA1C719C2D99A00CB109D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KeychainTouchIDTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainTouchIDTest.app/KeychainTouchIDTest";
+			};
+			name = Debug;
+		};
+		48CFA1C819C2D99A00CB109D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KeychainTouchIDTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainTouchIDTest.app/KeychainTouchIDTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48CFA19F19C2D99A00CB109D /* Build configuration list for PBXProject "KeychainTouchIDTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48CFA1C119C2D99A00CB109D /* Debug */,
+				48CFA1C219C2D99A00CB109D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48CFA1C319C2D99A00CB109D /* Build configuration list for PBXNativeTarget "KeychainTouchIDTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48CFA1C419C2D99A00CB109D /* Debug */,
+				48CFA1C519C2D99A00CB109D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		48CFA1C619C2D99A00CB109D /* Build configuration list for PBXNativeTarget "KeychainTouchIDTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48CFA1C719C2D99A00CB109D /* Debug */,
+				48CFA1C819C2D99A00CB109D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 48CFA19C19C2D99A00CB109D /* Project object */;
+}
