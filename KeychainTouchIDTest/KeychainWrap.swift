@@ -34,8 +34,44 @@ public class KeychainWrap {
         return keychainQuery
     }
     
+    
+    func createQueryForAddItemWithTouchID(# key: String, value: String? = nil) -> NSMutableDictionary {
+        var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
+        var error:  Unmanaged<CFError>?
+        var sac: Unmanaged<SecAccessControl>
+        sac = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
+                    kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly, .UserPresence, &error)
+        let retrievedData = Unmanaged<SecAccessControl>.fromOpaque(sac.toOpaque()).takeUnretainedValue()
+        
+        var keychainQuery = NSMutableDictionary()
+        keychainQuery[kSecClass] = kSecClassGenericPassword
+        keychainQuery[kSecAttrService] = self.serviceIdentifier
+        keychainQuery[kSecAttrAccount] = key
+        keychainQuery[kSecAttrAccessControl] = retrievedData
+        keychainQuery[kSecUseNoAuthenticationUI] = true
+        if let unwrapped = dataFromString {
+            keychainQuery[kSecValueData] = unwrapped
+        }
+        return keychainQuery
+    }
+
+    func createQueryForReadItemWithTouchID(# key: String, value: String? = nil) -> NSMutableDictionary {
+        var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
+
+        
+        var keychainQuery = NSMutableDictionary()
+        keychainQuery[kSecClass] = kSecClassGenericPassword
+        keychainQuery[kSecAttrService] = self.serviceIdentifier
+        keychainQuery[kSecAttrAccount] = key
+
+        keychainQuery[kSecUseOperationPrompt] = "fdfdf"
+        keychainQuery[kSecReturnData] = true
+        
+        return keychainQuery
+    }
     public func addKey(key: String, value: String) -> Int {
-        var statusAdd: OSStatus = SecItemAdd(createQuery(key: key, value: value), nil)
+        //var statusAdd: OSStatus = SecItemAdd(createQuery(key: key, value: value), nil)
+        var statusAdd: OSStatus = SecItemAdd(createQueryForAddItemWithTouchID(key: key, value: value), nil)
         return Int(statusAdd)
     }
     
@@ -49,7 +85,8 @@ public class KeychainWrap {
     public func readKey(key: String) -> NSString? {
         
         var dataTypeRef: Unmanaged<AnyObject>?
-        let status: OSStatus = SecItemCopyMatching(createQuery(key: key), &dataTypeRef)
+        //let status: OSStatus = SecItemCopyMatching(createQuery(key: key), &dataTypeRef)
+        let status: OSStatus = SecItemCopyMatching(createQueryForReadItemWithTouchID(key: key), &dataTypeRef)
         
         var contentsOfKeychain: NSString?
         if (Int(status) != errSecSuccess) {
