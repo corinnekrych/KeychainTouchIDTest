@@ -57,18 +57,16 @@ public class KeychainWrap {
 
     func createQueryForReadItemWithTouchID(# key: String, value: String? = nil) -> NSMutableDictionary {
         var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
-
-        
         var keychainQuery = NSMutableDictionary()
         keychainQuery[kSecClass] = kSecClassGenericPassword
         keychainQuery[kSecAttrService] = self.serviceIdentifier
         keychainQuery[kSecAttrAccount] = key
-
-        keychainQuery[kSecUseOperationPrompt] = "fdfdf"
+        keychainQuery[kSecUseOperationPrompt] = "Do you really want to access the item?"
         keychainQuery[kSecReturnData] = true
         
         return keychainQuery
     }
+    
     public func addKey(key: String, value: String) -> Int {
         //var statusAdd: OSStatus = SecItemAdd(createQuery(key: key, value: value), nil)
         var statusAdd: OSStatus = SecItemAdd(createQueryForAddItemWithTouchID(key: key, value: value), nil)

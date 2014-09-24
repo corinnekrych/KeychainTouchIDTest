@@ -7,15 +7,57 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func promptTouchID() {
+        var myContext = LAContext()
+        var authError: NSError? = nil
+        var myLocalizedReasonString:String = "Authenticate using your finger"
+        if (myContext.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error:&authError)) {
+            
+            myContext.evaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics,
+                localizedReason: myLocalizedReasonString,
+                reply: {(success: Bool, error: NSError!)->() in
+                    
+                    if (success) {
+                        println("User authenticated")
+                    } else {
+                        switch (error.code) {
+                        case LAError.AuthenticationFailed.toRaw():
+                            println("Authentication Failed")
+                            
+                        case LAError.UserCancel.toRaw():
+                            println("User pressed Cancel button")
+                            
+                        case LAError.UserFallback.toRaw():
+                            println("User pressed \"Enter Password\"")
+                            
+                        default:
+                            
+                            println("Touch ID is not configured")
+                        }
+                        
+                    println("Authentication Fails");
+                    let alert = UIAlertView(title: "Error", message: "Auth fails!", delegate: nil, cancelButtonTitle:"OK")
+                    alert.show()
+                }
+            })
+        } else {
+            println("Can not evaluate Touch ID");
+            let alert = UIAlertView(title: "Error", message: "Your passcode should be set!", delegate: nil, cancelButtonTitle:"OK")
+            alert.show()
+        }
 
+    
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        promptTouchID()
         return true
     }
 
@@ -31,10 +73,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        promptTouchID()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {
