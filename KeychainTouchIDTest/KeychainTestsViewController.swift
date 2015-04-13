@@ -38,7 +38,7 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cellIdentifier = "TestCell"
         
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
+        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
         cell = UITableViewCell(style: .Subtitle, reuseIdentifier:cellIdentifier)
         
         
@@ -64,7 +64,7 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
                 let message = keychainErrorToString(result)
                 UIAlertView(title: "Add item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
             } else if unwrappedTest.name == "Query item" {
-                let result: String = keychain!.readKey("key1")!
+                let result: String = keychain!.readKey("key1")! as String
                 var message = "Error reading"
                 if result == "value1" {
                     message = "Success: \(result) found"
@@ -93,11 +93,11 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
         
         var msg: String?
         switch(error) {
-        case errSecSuccess: msg = "Success"
-        case errSecDuplicateItem: msg = "Duplicate item, please delete first"
-        case errSecItemNotFound: msg = "Item not found"
+        case Int(errSecSuccess): msg = "Success"
+        case Int(errSecDuplicateItem): msg = "Duplicate item, please delete first"
+        case Int(errSecItemNotFound): msg = "Item not found"
         case -26276: msg = "Item authenticationFailed"
-        case errSecAuthFailed: msg = "Auth failed"
+        case Int(errSecAuthFailed): msg = "Auth failed"
         default: msg = "Error: \(error)"
         }
         
