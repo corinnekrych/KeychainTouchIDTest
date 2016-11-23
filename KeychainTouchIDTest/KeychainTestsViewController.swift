@@ -8,6 +8,26 @@
 
 import Foundation
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class Test: NSObject {
     var name: String?
@@ -31,32 +51,30 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     // MARK - UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tests?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cellIdentifier = "TestCell"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "TestCell"
         
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
-        cell = UITableViewCell(style: .Subtitle, reuseIdentifier:cellIdentifier)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier:cellIdentifier)
         
-        
-        var test:Test? = self.testForIndexPath(indexPath)
+        let test:Test? = self.testForIndexPath(indexPath)
         cell.textLabel?.text = test?.name;
         cell.detailTextLabel?.text = test?.details;
         
         return cell;
     }
     
-    func testForIndexPath(indexPath: NSIndexPath) -> Test? {
-        if (indexPath.section > 0 || indexPath.row >= self.tests?.count) {
+    func testForIndexPath(_ indexPath: IndexPath) -> Test? {
+        if ((indexPath as NSIndexPath).section > 0 || (indexPath as NSIndexPath).row >= self.tests?.count) {
             return nil;
         }
-        return self.tests?[indexPath.row] ?? nil
+        return self.tests?[(indexPath as NSIndexPath).row] ?? nil
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let testSelected:Test? = self.testForIndexPath(indexPath)
         if let unwrappedTest = testSelected {
             if unwrappedTest.name == "Add item" {
@@ -64,7 +82,7 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
                 let message = keychainErrorToString(result)
                 UIAlertView(title: "Add item", message: message, delegate: self, cancelButtonTitle: "Cancel").show()
             } else if unwrappedTest.name == "Query item" {
-                let result: String = keychain!.readKey("key1")! as String
+                let result: String = keychain!.readKey("key1") as String
                 var message = "Error reading"
                 if result == "value1" {
                     message = "Success: \(result) found"
@@ -89,7 +107,7 @@ class KeychainTestsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-    func keychainErrorToString(error: Int) -> String {
+    func keychainErrorToString(_ error: Int) -> String {
         
         var msg: String?
         switch(error) {

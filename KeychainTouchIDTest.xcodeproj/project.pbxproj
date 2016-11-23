@@ -170,9 +170,11 @@
 				TargetAttributes = {
 					48CFA1A319C2D99A00CB109D = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					48CFA1B819C2D99A00CB109D = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 48CFA1A319C2D99A00CB109D;
 					};
 				};
@@ -353,6 +355,7 @@
 				INFOPLIST_FILE = KeychainTouchIDTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -363,6 +366,7 @@
 				INFOPLIST_FILE = KeychainTouchIDTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -381,6 +385,7 @@
 				INFOPLIST_FILE = KeychainTouchIDTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainTouchIDTest.app/KeychainTouchIDTest";
 			};
 			name = Debug;
@@ -396,6 +401,7 @@
 				INFOPLIST_FILE = KeychainTouchIDTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeychainTouchIDTest.app/KeychainTouchIDTest";
 			};
 			name = Release;
@@ -419,6 +425,7 @@
 				48CFA1C519C2D99A00CB109D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48CFA1C619C2D99A00CB109D /* Build configuration list for PBXNativeTarget "KeychainTouchIDTestTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +434,7 @@
 				48CFA1C819C2D99A00CB109D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

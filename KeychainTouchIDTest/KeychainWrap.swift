@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class KeychainWrap {
-    public var serviceIdentifier: String
+open class KeychainWrap {
+    open var serviceIdentifier: String
     
     public init() {
-        if let bundle = NSBundle.mainBundle().bundleIdentifier {
+        if let bundle = Bundle.main.bundleIdentifier {
             self.serviceIdentifier = bundle
         } else {
             self.serviceIdentifier = "unkown"
         }
     }
     
-    func createQuery(# key: String, value: String? = nil) -> NSMutableDictionary {
-        var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
-        var keychainQuery = NSMutableDictionary()
+    func createQuery(key: String, _ value: String? = nil) -> NSMutableDictionary {
+        let dataFromString: Data? = value?.data(using: String.Encoding.utf8)
+        let keychainQuery = NSMutableDictionary()
         keychainQuery[kSecClass as String] = kSecClassGenericPassword as AnyObject?
         keychainQuery[kSecAttrService as String] = self.serviceIdentifier
         keychainQuery[kSecAttrAccount as String] = key
@@ -35,19 +35,17 @@ public class KeychainWrap {
     }
     
     
-    func createQueryForAddItemWithTouchID(# key: String, value: String? = nil) -> NSMutableDictionary {
-        var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
+    func createQueryForAddItemWithTouchID(key: String, _ value: String? = nil) -> NSMutableDictionary {
+        let dataFromString: Data? = value?.data(using: String.Encoding.utf8)
         var error:  Unmanaged<CFError>?
-        var sac: Unmanaged<SecAccessControl>
-        sac = SecAccessControlCreateWithFlags(kCFAllocatorDefault,
-            kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly, .UserPresence, &error)
-        let retrievedData = Unmanaged<SecAccessControl>.fromOpaque(sac.toOpaque()).takeUnretainedValue()
-        
-        var keychainQuery = NSMutableDictionary()
+        var sac: SecAccessControl?
+        sac = SecAccessControlCreateWithFlags(kCFAllocatorDefault, kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly, .userPresence, &error)
+
+        let keychainQuery = NSMutableDictionary()
         keychainQuery[kSecClass as String] = kSecClassGenericPassword as AnyObject?
         keychainQuery[kSecAttrService as String] = self.serviceIdentifier
         keychainQuery[kSecAttrAccount as String] = key
-        keychainQuery[kSecAttrAccessControl as String] = retrievedData
+        keychainQuery[kSecAttrAccessControl as String] = sac
         keychainQuery[kSecUseNoAuthenticationUI as String] = true
         if let unwrapped = dataFromString {
             keychainQuery[kSecValueData as String] = unwrapped
@@ -55,9 +53,9 @@ public class KeychainWrap {
         return keychainQuery
     }
     
-    func createQueryForReadItemWithTouchID(# key: String, value: String? = nil) -> NSMutableDictionary {
-        var dataFromString: NSData? = value?.dataUsingEncoding(NSUTF8StringEncoding)
-        var keychainQuery = NSMutableDictionary()
+    func createQueryForReadItemWithTouchID(key: String, _ value: String? = nil) -> NSMutableDictionary {
+        let dataFromString: Data? = value?.data(using: String.Encoding.utf8)
+        let keychainQuery = NSMutableDictionary()
         keychainQuery[kSecClass as String] = kSecClassGenericPassword
         keychainQuery[kSecAttrService as String] = self.serviceIdentifier
         keychainQuery[kSecAttrAccount as String] = key
@@ -67,45 +65,44 @@ public class KeychainWrap {
         return keychainQuery
     }
     
-    public func addKey(key: String, value: String) -> Int {
+    open func addKey(_ key: String, value: String) -> Int {
         //var statusAdd: OSStatus = SecItemAdd(createQuery(key: key, value: value), nil)
-        var statusAdd: OSStatus = SecItemAdd(createQueryForAddItemWithTouchID(key: key, value: value), nil)
+        let statusAdd: OSStatus = SecItemAdd(createQueryForAddItemWithTouchID(key: key, value), nil)
         return Int(statusAdd)
     }
     
-    public func updateKey(key: String, value: String) -> Int {
+    open func updateKey(_ key: String, value: String) -> Int {
         let attributesToUpdate = NSMutableDictionary()
-        attributesToUpdate[kSecValueData as String] = value.dataUsingEncoding(NSUTF8StringEncoding)!
-        var status: OSStatus = SecItemUpdate(createQuery(key: key, value: value), attributesToUpdate)
+        attributesToUpdate[kSecValueData as String] = value.data(using: String.Encoding.utf8)!
+        let status: OSStatus = SecItemUpdate(createQuery(key: key, value), attributesToUpdate)
         return Int(status)
     }
     
-    public func readKey(key: String) -> NSString? {
+    open func readKey(_ key: String) -> String {
         
-        var dataTypeRef: Unmanaged<AnyObject>?
+        var result: AnyObject?
         //let status: OSStatus = SecItemCopyMatching(createQuery(key: key), &dataTypeRef)
-        let status: OSStatus = SecItemCopyMatching(createQueryForReadItemWithTouchID(key: key), &dataTypeRef)
+        let status: OSStatus = SecItemCopyMatching(createQueryForReadItemWithTouchID(key: key), &result)
         
-        var contentsOfKeychain: NSString?
-        if (status != errSecSuccess) {
+        var contentsOfKeychain: String?
+        
+        guard status == noErr else {
             contentsOfKeychain = "\(Int(status))"
-            return contentsOfKeychain
+            return contentsOfKeychain ?? ""
         }
         
-        let opaque = dataTypeRef?.toOpaque()
-        if let op = opaque {
-            let retrievedData = Unmanaged<NSData>.fromOpaque(op).takeUnretainedValue()
+        if let data = result as? Data {
             // Convert the data retrieved from the keychain into a string
-            contentsOfKeychain = NSString(data: retrievedData, encoding: NSUTF8StringEncoding)
+            contentsOfKeychain = String(data: data, encoding: String.Encoding.utf8)
         } else {
-            println("Nothing was retrieved from the keychain. Status code \(status)")
+            print("Nothing was retrieved from the keychain. Status code \(status)")
         }
         
-        return contentsOfKeychain
+        return contentsOfKeychain ?? ""
     }
     
     // when uninstalling app you may wish to clear keyclain app info
-    public func resetKeychain() -> Bool {
+    open func resetKeychain() -> Bool {
         return self.deleteAllKeysForSecClass(kSecClassGenericPassword) &&
             self.deleteAllKeysForSecClass(kSecClassInternetPassword) &&
             self.deleteAllKeysForSecClass(kSecClassCertificate) &&
@@ -113,8 +110,8 @@ public class KeychainWrap {
             self.deleteAllKeysForSecClass(kSecClassIdentity)
     }
     
-    func deleteAllKeysForSecClass(secClass: CFTypeRef) -> Bool {
-        var keychainQuery = NSMutableDictionary()
+    func deleteAllKeysForSecClass(_ secClass: CFTypeRef) -> Bool {
+        let keychainQuery = NSMutableDictionary()
         keychainQuery[kSecClass as String] = secClass
         
         let result:OSStatus = SecItemDelete(keychainQuery)
